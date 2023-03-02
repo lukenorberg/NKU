@@ -1,0 +1,19 @@
+body {
+    background-color: #DDDDFF;
+    color: #000000;
+    font-family: "Times New Roman", Georgia, Times;
+}
+
+a {
+    background-color: #CCCCCC;
+}
+
+h2 {
+    color: #0000FF;
+    font-family: Arial;
+}
+
+.favorite {
+    color: #FF0000;
+    font-style: italic;
+}

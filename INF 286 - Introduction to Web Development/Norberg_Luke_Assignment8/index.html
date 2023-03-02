@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Book Survey</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 5px;
+            padding: 0;
+        }
+
+        fieldset {
+            padding: 10px;
+            padding-left: 20px;
+            width: 80%;
+        }
+
+        #name-content {
+            width: 40%;
+            display: grid;
+            grid-template-rows: 1fr 1fr;
+            grid-template-columns: 75px 1fr;
+        }
+
+        select {
+            min-height:70px;
+        }
+
+        #check-content {
+            width: 60%;
+            display: grid;
+            grid-template-rows: 40px 40px 40px;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        #button {
+            margin-left: 20px;
+            width: 25%;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        #button input {
+            padding: 3px;
+        }
+
+    </style>
+</head>
+<body>
+<h1>Book Survey</h1>
+<form method="post" action="https://webdevbasics.net/scripts/demo.php">
+    <fieldset>
+        <legend>Student Information</legend>
+        <div id="name-content">
+            <label for="name">Name:</label>
+            <input type="text" name="name" id="name">
+            <label for="email">Email:</label>
+            <input type="email" name="email" id="email">
+        </div>
+    </fieldset>
+    <fieldset>
+        <legend>Select your gender</legend>
+        <label><input type="radio" name="gender" id="male">Male</label>
+        <label><input type="radio" name="gender" id="female">Female</label>
+    </fieldset>
+    <fieldset>
+        <legend>Select your favorite type(s) of books</legend>
+        <div id="check-content">
+            <label><input type="checkbox" name="science" id="science">Science</label>
+            <label><input type="checkbox" name="fiction" id="fiction">Fiction</label>
+            <label><input type="checkbox" name="arts" id="arts">Arts</label>
+            <label><input type="checkbox" name="social studies" id="social studies">Social Studies</label>
+            <label><input type="checkbox" name="non-fiction" id="non-fiction">Non-fiction</label>
+            <label><input type="checkbox" name="other" id="other">Other</label>
+        </div>
+    </fieldset>
+    <fieldset>
+        <legend>Select the locations you purchase books</legend>
+        <label><select size="3" name="favbook" id="favbook">
+            <option value="bookstores">At book stores</option>
+            <option value="internet">On the internet</option>
+            <option value="yardsale">Yard Sale</option>
+            <option value="cafe">At a cafe</option>
+        </select></label>
+    </fieldset>
+    <fieldset>
+        <legend>What role does reading books play in your life?</legend>
+        <label><textarea name="roleofbooks" id="roleofbooks" cols="40" rows="4"></textarea></label>
+    </fieldset>
+    <div id="button">
+        <input type="submit" value="Submit">
+        <input type="reset">
+    </div>
+</form>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Document</title>
+
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+        }
+        table {
+            background-color: #EEEEEE;
+            width: 80%;
+            border: 3px solid black;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 5px;
+            border: 1px solid black;
+        }
+        caption {
+            font-size: 1.5em;
+            font-family: Ariel;
+            font-style: italic;
+            font-weight: bold;
+        }
+
+        th, .semester {
+            font-weight: bold;
+        }
+
+    </style>
+</head>
+<body>
+    <table>
+        <caption>Course Grade</caption>
+        <tr>
+            <th colspan="2" scope="col">Semester</th>
+            <th scope="col">Course</th>
+            <th scope="col">Grade</th>
+            <th scope="col">GPA</th>
+        </tr>
+        <tr>
+            <td rowspan="2" class="semester" align="center">Fall</td>
+            <td rowspan="2" class="semester" align="center">2018</td>
+            <td>INF 120</td>
+            <td>A</td>
+            <td rowspan="4">3.5</td>
+        </tr>
+        <tr>
+            <td>CIT 130</td>
+            <td>B</td>
+        </tr>
+        <tr>
+            <td rowspan="2" class="semester" align="center">Spring</td>
+            <td rowspan="2" class="semester" align="center">2019</td>
+            <td>INF 286</td>
+            <td>A</td>
+        </tr>
+        <tr>
+            <td>CSC 260</td>
+            <td>B</td>
+        </tr>
+    </table>
+</body>
+</html>
