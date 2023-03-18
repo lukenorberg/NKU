@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Membership Purchase Application</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        h3 {
+            margin: 20px;
+            padding: 10px;
+            border-bottom: 2px solid #000000;
+            font-style: italic;
+        }
+        table, h1, p {
+            margin-left: 20px;
+        }
+        td {
+            width: 175px;
+            padding: 10px;
+        }
+    </style>
+
+    <script>
+
+        // prompts user for information
+        const name = window.prompt("What is your name?");
+        const mailingAddress = window.prompt("What is your mailing address?");
+        const phoneNumber = window.prompt("What is your phone number?");
+        const emailAddress = window.prompt("What is your email address?");
+        const numOfMemberships = parseInt(window.prompt("How many memberships would you like to purchase?"));
+
+        // calculates the unit price and total cost for the applications
+        const unitPrice = 30;
+        const totalCost = unitPrice * numOfMemberships;
+
+        // creates the HTML that will be outputted
+        const customerInfoHtml = `<h3>Customer information</h3>
+                                    <table>
+                                        <tr>
+                                        <td>Name:</td>
+                                        <td>${name}</td>
+                                        </tr>
+                                        <tr>
+                                        <td>Address:</td>
+                                        <td>${mailingAddress}</td>
+                                        </tr>
+                                        <tr>
+                                        <td>Phone:</td>
+                                        <td>${phoneNumber}</td>
+                                        </tr>
+                                        <tr>
+                                        <td>Email:</td>
+                                        <td>${emailAddress}</td>
+                                        </tr>
+                                    </table>
+                                    `;
+
+        const orderInfoHtml = `<h3>Order information</h3>
+                                     <table>
+                                        <tr>
+                                        <td>Number of memberships:</td>
+                                        <td>${numOfMemberships}</td>
+                                        </tr>
+                                        <tr>
+                                        <td>Unit price ($):</td>
+                                        <td>${unitPrice}</td>
+                                        </tr>
+                                        <tr>
+                                        <td>Total cost ($):</td>
+                                        <td>${totalCost}</td>
+                                        </tr>
+                                        <tr>
+                                    </table>
+                                    <p>Thanks for using the application!</p>
+                                     `;
+    </script>
+</head>
+
+<body>
+    <header>
+        <h1>Membership Purchase Application</h1>
+    </header>
+
+    <main>
+        <div class="content">
+
+            <div class="customer-info">
+                <script>
+                    document.write(customerInfoHtml);
+                </script>
+            </div>
+            <div class="order-info">
+                <script>
+                    document.write(orderInfoHtml);
+                </script>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
