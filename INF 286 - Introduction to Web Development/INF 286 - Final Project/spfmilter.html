@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style2.css" media="screen">
+    <link rel="stylesheet" href="style2print.css" media="print">
+    <title>spfmilter</title>
+  </head>
+
+  <body>
+  <div class="page">
+      <header>
+          <img src="https://www.pinclipart.com/picdir/big/551-5516519_atom-symbol-png-atom-symbol-clipart.png" alt="Atom Logo" height="80px">
+          <div class="content">
+              <h2>SPFmilter</h2>
+          </div>
+      </header>
+
+  <nav>
+        <ul>
+              <li> <a href="ACME update.html"><b>ACME Updates</b></a>
+              </li>
+            <li> <a href="ACME new login.html">ACME News</a>
+                </li>
+            <li> <a href="acme.com's hardware.html">ACME hardware</a>
+            </li>
+            <li> <a href="ACME meaning.html">ACME Meaning</a>
+            </li>
+            <li> <a href="Help Support ACME Laboratories.html"><b>Donate </b></a>
+            </li>
+        </ul>
+    </nav>
+
+      <main>
+          <div class="content help">
+<!--AD_START-->
+<div align="center">
+<script type="text/javascript"><!--
+google_ad_client = "pub-5759188606642566";
+/* 728x90, created 9/23/09 */
+google_ad_slot = "8720321611";
+google_ad_width = 728;
+google_ad_height = 90;
+google_ad_channel = "0933605602";
+//-->
+</script>
+<script type="text/javascript" src="spfmilter_files/show_ads.js">
+</script>
+</div>
+
+
+    <table class="warning"><tbody><tr><td >
+      <p>
+        <b>A note on version numbers.</b>
+        There is another site which distributes spfmilter packages with
+        1.0.x versions numbers.
+        The 1.0.x series are unauthorized copies of old versions from here.
+        Their version numbers were changed for <b>political reasons</b>,
+        not engineering reasons.
+        Those versions should be <b>ignored</b>.
+      </p>
+      <p>
+        Because of this issue, there has <b>never</b> been a legitimate
+        1.x version of spfmilter.
+	The legitimate versions went from 0.99 straight to 2.0.
+      </p>
+    </td></tr></tbody></table>
+
+    <p>
+      Sendmail includes a facility for plugging in custom mail filters,
+      called milters.
+      It's documented <a href="https://www.milter.org/developers/api/">here</a>.
+      Spfmilter implements the Sender Policy Framework
+      (<a href="http://www.openspf.org/">SPF</a>)
+      as a milter, using either the
+      <a href="http://software.schmorp.de/pkg/libspf.html">libspf</a>
+      or
+      <a href="http://www.libspf2.org/">libspf2</a>
+      libraries.
+    </p>
+
+    <p>
+      The idea of SPF is to prevent email forgery.
+      Each participating site sets up a little definition of which
+      hosts are allowed to send mail claiming to be from that site.
+      When another site receives mail, it checks the permitted-senders
+      definition for the originating site.
+      If the check fails, the mail is rejected.
+    </p>
+
+    <p>
+      Setting up the permitted-senders definition is very easy, you go to the
+      <a href="http://spf.pobox.com/wizard.html">SPF Wizard</a>
+      and fill out a little form, then put the resulting string
+      into your DNS records.
+      This milter implements the second half of SPF, checking the
+      mail you receive against other sites' SPF records.
+    </p>
+
+    <hr>
+
+    <h4>Mailing List</h4>
+
+    <p>
+      Are you using spfmilter?
+      There's a
+      <a href="https://groups.google.com/d/forum/acme-spfmilter">mailing list</a>.
+      Join the conversation!
+    </p>
+
+    <hr>
+
+    <h4>Release Notes</h4>
+
+    <a name="releasenotes"></a>
+
+    <p>
+      Version 2.001, 25feb2015:
+    </p>
+    <ul>
+      <li> IPv6 portability fix. </li>
+      <li> Avoid SEGV with --localpolicy under libspf2. </li>
+    </ul>
+
+    <p>
+      Version 2.0, 12feb2015:
+    </p>
+    <ul>
+      <li> Updated to the current milter API. </li>
+      <li> Updated to the current libspf and libspf2. </li>
+      <li> Updated the FreeBSD rc.conf script to modern standards. </li>
+      <li> Replaced the whitelist data structure with one that handles IPv6. </li>
+    </ul>
+
+    <p>
+      Version 0.99, 14aug2014:
+    </p>
+    <ul>
+      <li> Some more cleanup. </li>
+    </ul>
+
+    <p>
+      Version 0.98, 16jul2014:
+    </p>
+    <ul>
+      <li>
+	Changed the regular SMTP response code used in -graylist mode from
+        451 to 421. (Jobst Schmalenbach)
+      </li>
+      <li> Added pidfile option. </li>
+      <li> Updated for clang, and general cleanup. </li>
+    </ul>
+
+    <p>
+      Version 0.97, 20jun2005:
+    </p>
+    <ul>
+      <li> Some improvements to the redhat rcscripts. (Paul Howarth) </li>
+      <li>
+	Deal with the unknown-family connections which occasionally show
+        up on some OSs, such as Solaris. (Joel Lord)
+      </li>
+    </ul>
+
+    <p>
+      Version 0.96, 26apr2005:
+    </p>
+    <ul>
+      <li>
+	Use smfi_insheader() if it's available, so that the Received-SPF
+        header goes at the front where the spec says it belongs.
+      </li>
+    </ul>
+
+    <p>
+      Version 0.95, 26sep2004:
+    </p>
+    <ul>
+      <li> Fixed problem with guess/fallback mode when using libspf. </li>
+    </ul>
+
+    <p>
+      Version 0.94, 10sep2004:
+    </p>
+    <ul>
+      <li>
+	Clean up memory from the iparray module, so that valgrind
+	doesn't complain.
+      </li>
+      <li>
+	If fetching the {j} macro from sendmail doesn't give us the local
+        hostname, call gethostname().
+      </li>
+      <li>
+	Avoid potential memory leak from multiple HELOs in the same connection.
+      </li>
+      <li> Avoid potential SEGV from no HELO. </li>
+      <li>
+	If the envelope-from address is empty or doesn't have an @,
+        make a fake one using the HELO domain.
+      </li>
+      <li> Trim CRs off the ends of addresses. </li>
+      <li> Added ifdef to optionally not use libspf2's caching DNS layer. </li>
+      <li> Added autoconf stuff. </li>
+    </ul>
+
+    <p>
+      Version 0.93, 07aug2004:
+    </p>
+    <ul>
+      <li>
+	Moved the larger local string buffers to the connection-data object,
+        so the threads don't use so much stack space.
+      </li>
+    </ul>
+
+    <p>
+      Version 0.92, 05aug2004:
+    </p>
+    <ul>
+      <li>
+	Minor tweak so my spfmilter.c works with Shevek's autoconf setup.
+      </li>
+    </ul>
+
+    <p>
+      Version 0.91, 05aug2004:
+    </p>
+    <ul>
+      <li>
+	Match fallback patterns against only the hostname part of
+	from-addresses, not the whole address. (Paul Howarth)
+      </li>
+      <li>
+	Only delete SPF headers that claim to be from the local hostname.
+        (Paul Howarth)
+      </li>
+      <li> Added an rc_scripts directory. </li>
+      <li> Fixed memory leak. (Ken Serrine) </li>
+    </ul>
+
+    <p>
+      Version 0.90, 30jul2004:
+    </p>
+    <ul>
+      <li>
+	Accept authenticated messages without doing the SPF check.
+        (Ivan Martinez, Mike Markley)
+      </li>
+      <li> Better version of --recipientmx check. (Paul Howarth) </li>
+      <li>
+	First version of code to work with libspf as well as libspf2.
+        To use with libspf, edit the Makefile and switch the commenting
+        on the first four lines.
+        This code runs but has not been tested for more than a few minutes.
+      </li>
+    </ul>
+
+    <p>
+      Version 0.86, 15jul2004:
+    </p>
+    <ul>
+      <li>
+	Fixed a bug that only showed up when the resolver pool had to
+        be expanded to deal with more than 100 threads.
+      </li>
+    </ul>
+
+    <p>
+      Version 0.85, 15jul2004:
+    </p>
+    <ul>
+      <li>
+	Changed the behavior on DNS errors.
+        Previously, the message triggering the error was returned with
+        a temporary failure code.
+        If the DNS error persisted, then eventually the message would time out
+        and bounce.
+        As of this version, such messages are accepted and marked with a
+        Received-SPF header, which should contain an explanation of the error.
+      </li>
+    </ul>
+
+    <p>
+      Version 0.80, 11jul2004:
+    </p>
+    <ul>
+      <li> Added IP whitelisting. </li>
+      <li> Added wildcard fallback records. </li>
+    </ul>
+
+    <p>
+      Version 0.50, 19jun2004:
+    </p>
+    <ul>
+      <li> Packaging help from Shevek. </li>
+      <li>
+        Worked around a memory leak in the resolver library by adding
+        a persistent pool of resolver objects.
+      </li>
+    </ul>
+
+    <p>
+      Version 0.10, 31may2004:
+    </p>
+    <ul>
+      <li> First version. </li>
+    </ul>
+
+    <hr>
+
+    <h4>Installation</h4>
+
+    <p>
+      This is very abbreviated, intended mainly as a reminder for those
+      who have worked with milters before.
+      If it's your first milter, you should look on the web for more thorough
+      documentation.
+      Also, these instructions are pretty specific to FreeBSD, and will
+      have to be adapted for other OSs.
+    </p>
+    <ol>
+      <li>
+        Make sure your sendmail is compiled with the MILTER option.
+        (Starting with version 8.13 this is enabled by default.)
+        You can use this command to check:
+        <blockquote><pre><code>
+sendmail -d0.1 -bt &lt; /dev/null | grep MILTER
+        </code></pre></blockquote>
+        If you don't see MILTER in the compilation options, you will have
+        to re-build sendmail.
+      </li>
+      <li>
+        Fetch, build, and install either
+        <a href="http://www.libspf.org/">libspf</a>
+        or
+        <a href="http://www.libspf2.org/">libspf2</a>.
+        If you use libspf be sure to configure with the "--enable-pthreads" option.
+      </li>
+      <li>
+        Build and install the spfmilter executable, by doing a './configure ; make ; make install'.
+      </li>
+      <li>
+        Edit your sendmail.mc and add a mail filter macro, for example:
+        <blockquote><pre><code>
+INPUT_MAIL_FILTER(`spfmilter',`S=unix:/var/run/spfmilter.sock')
+        </code></pre></blockquote>
+        Rebuild and install sendmail.cf.
+      </li>
+      <li>
+        Run spfmilter, with the same socket argument you used in sendmail.mc:
+        <blockquote><pre><code>
+# spfmilter unix:/var/run/spfmilter.sock
+        </code></pre></blockquote>
+      </li>
+      <li>
+        Stop and re-start sendmail.
+      </li>
+      <li>
+        Look in /var/log/maillog for messages from spfmilter.
+      </li>
+      <li>
+        When you've verified that it's working, add lines to your /etc/rc.conf
+        so it starts up at boot time:
+        <blockquote><pre><code>
+spfmilter_enable="YES"
+spfmilter_socket="unix:/var/run/spfmilter.sock"
+        </code></pre></blockquote>
+      </li>
+    </ol>
+
+    <hr>
+
+    <h4>Other SPF Milters</h4>
+
+    <ul>
+      <li>
+	<a href="http://spf.pobox.com/sendmail-milter-spf-1.41.pl">SPF milter in Perl</a>.
+      </li>
+      <li>
+	<a href="http://www.bmsi.com/python/milter.html">Generic milter in Python</a> that can do SPF checking.
+      </li>
+      <li>
+	<a href="http://www.wanlink.com/spamilter/">spamilter</a>, a general anti-spam milter in C that includes SPF checking.
+      </li>
+    </ul>
+
+    <hr class="thick">
+
+
+    <p>
+      See also:
+      <a href="http://acme.com/software/sfcmilter/">sfcmilter</a>,
+      <a href="http://acme.com/software/blackmilter/">blackmilter</a>,
+      <a href="http://acme.com/software/graymilter/">graymilter</a>,
+      <a href="http://acme.com/software/sample_milter/">sample_milter</a>.<br>
+      <a href="http://acme.com/software/spfmilter/senderid.html">Sender ID</a>.<br>
+      <a href="http://www.acme.com/">ACME Labs</a> / <a href="http://www.acme.com/software/">Software</a> / spfmilter<br>
+    </p>
+          </div>
+      </main>
+
+
+      <footer>
+          <div class="text">
+              <small>
+                  <A HREF="index.html">Back to ACME Labs.</A></small>
+          </div>
+      </footer>
+  </div>
+</body></html>

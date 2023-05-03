@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+
+    <script>
+        let myArray = new Array(100);
+        for (let i = 0; i < 50; i++) {
+            myArray[i] = i;
+        }
+        for (let i = 50; i < 100; i++) {
+            myArray[i] = i + 2;
+        }
+        let sum = 0;
+        for (let val of myArray) {
+            sum += val;
+        }
+        let average = sum / 100;
+    </script>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>subscript</th>
+            <th>element value</th>
+        </tr>
+        <script>
+            for(let i = 0; i < myArray.length; i++) {
+                document.writeln("<tr><td>" + i + "</td><td>" +
+                    myArray[i] + "</td>" + "</td></tr>");
+            }
+        </script>
+    </table>
+    <div>Sum:
+        <script>document.write(sum)</script>
+    </div>
+    <div>Average:
+        <script>document.write(average)</script>
+    </div>
+</body>
+</html>

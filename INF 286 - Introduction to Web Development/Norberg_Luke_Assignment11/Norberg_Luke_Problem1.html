@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Membership Purchase Application</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        h3 {
+            margin: 20px;
+            padding: 10px;
+            border-bottom: 2px solid #000000;
+            font-style: italic;
+        }
+        table, h1, p {
+            margin-left: 20px;
+        }
+        td {
+            width: 175px;
+            padding: 10px;
+        }
+    </style>
+
+    <script>
+        let repeatOrder = true;
+        const mainHeader = `<h1>Membership Purchase Application</h1>`;
+        document.write(mainHeader);
+
+        do {
+            let numOfMemberships = 0;
+            // prompts user for information
+            const name = window.prompt("What is your name?");
+            const mailingAddress = window.prompt("What is your mailing address?");
+            const phoneNumber = window.prompt("What is your phone number?");
+            const emailAddress = window.prompt("What is your email address?");
+            while (numOfMemberships < 1 || numOfMemberships > 100) {
+                numOfMemberships = parseInt(window.prompt("How many memberships would you like to purchase?"));
+            }
+
+
+            // calculates the unit price and total cost for the applications
+            let unitPrice = 30;
+            let discount = 0;
+            const totalCostBeforeDiscount = unitPrice * numOfMemberships;
+            if (numOfMemberships >= 60) {
+                discount = 15;
+            }
+            else if (numOfMemberships >= 30) {
+                discount = 15;
+            }
+            let totalCost = totalCostBeforeDiscount * (1 - (discount / 100));
+            let discountAmount = totalCostBeforeDiscount - totalCost;
+
+
+            // creates the HTML that will be outputted
+            const customerInfoHtml = `<h3>Customer information for ${name}</h3>
+                                    <table>
+                                        <tr>
+                                        <td>Name:</td>
+                                        <td>${name}</td>
+                                        </tr>
+                                        <tr>
+                                        <td>Address:</td>
+                                        <td>${mailingAddress}</td>
+                                        </tr>
+                                        <tr>
+                                        <td>Phone:</td>
+                                        <td>${phoneNumber}</td>
+                                        </tr>
+                                        <tr>
+                                        <td>Email:</td>
+                                        <td>${emailAddress}</td>
+                                        </tr>
+                                    </table>
+                                    `;
+
+            const orderInfoHtml = `<h3>Order information for ${name}</h3>
+                                     <table>
+                                        <tr>
+                                        <td>Number of memberships:</td>
+                                        <td>${numOfMemberships}</td>
+                                        </tr>
+                                        <tr>
+                                        <td>Cost per membership:</td>
+                                        <td>$${unitPrice}</td>
+                                        </tr>
+                                        <tr>
+                                        <td>Total cost before discount:</td>
+                                        <td>$${totalCostBeforeDiscount}</td>
+                                        </tr>
+                                        <tr>
+                                        <td>Discount:</td>
+                                        <td>${discount}% / $${discountAmount}</td>
+                                        </tr>
+                                        <tr>
+                                        <td>Total cost after discount:</td>
+                                        <td>$${totalCost}</td>
+                                        </tr>
+                                        <tr>
+                                    </table>
+                                    <p>Thanks for using the application!</p>
+                                    <br>
+                                    <br>
+                                    <br>
+                                     `;
+
+
+
+            const repeatOrderResponse = window.prompt("Do you want to purchase the memberships?");
+            if (repeatOrderResponse == "NO") {
+                repeatOrder = false;
+            } else {
+                document.write(customerInfoHtml);
+                document.write(orderInfoHtml);
+            }
+        } while (repeatOrder)
+
+    </script>
+</head>
+
+<body>
+
+</body>
+</html>
